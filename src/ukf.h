@@ -41,23 +41,40 @@ public:
   MatrixXd Xsig_pred_;
 
   //create example vector for incoming radar measurement
-  VectorXd z_;
+  VectorXd z_rad_;
 
   //create matrix for sigma points in measurement space
-  MatrixXd Zsig_;
+  MatrixXd Zsig_rad_;
 
   //mean predicted measurement
-  VectorXd z_pred_;
+  VectorXd z_pred_rad_;
 
   //innovation covariance matrix S
-  MatrixXd S_;
+  MatrixXd S_rad_;
 
   //add measurement noise covariance matrix
-  MatrixXd R_;
+  MatrixXd R_rad_;
 
   //create matrix for cross correlation Tc_
-  MatrixXd Tc_;
+  MatrixXd Tc_rad_;
 
+  //create example vector for incoming laser measurement
+  VectorXd z_lsr_;
+
+  //create matrix for sigma points in measurement space
+  MatrixXd Zsig_lsr_;
+
+  //mean predicted measurement
+  VectorXd z_pred_lsr_;
+
+  //innovation covariance matrix S
+  MatrixXd S_lsr_;
+
+  //add measurement noise covariance matrix
+  MatrixXd R_lsr_;
+
+  //create matrix for cross correlation Tc_
+  MatrixXd Tc_lsr_;
 
   ///* time when the state is true, in us
   long long time_us_;
@@ -96,7 +113,10 @@ public:
   int n_aug_;
 
   //set measurement dimension, radar can measure r, phi, and r_dot
-  int n_z_;
+  int n_z_rad_;
+
+  //set measurement dimension, laser can measure p_x and p_y
+  int n_z_lsr_;
 
   ///* Sigma point spreading parameter
   double lambda_;
